@@ -47,7 +47,7 @@ class Car(db.Model):
     make = db.Column(db.String(150))
     model = db.Column(db.String(150))
     year = db.Column(db.String(4), nullable=True)
-    color = db.Column(db.Integer)
+    color = db.Column(db.String)
     price = db.Column(db.Numeric(precision=10, scale=2))
     is_new = db.Column(db.Boolean, default=False)
     vehicle_type = db.Column(db.String(15))
