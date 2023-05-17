@@ -51,11 +51,10 @@ class Car(db.Model):
     price = db.Column(db.Numeric(precision=10, scale=2))
     is_new = db.Column(db.Boolean, default=False)
     vehicle_type = db.Column(db.String(15))
-    fuel_type = db.Column(db.String, nullable=True)
     image = db.Column(db.String, nullable=True)
     user_token = db.Column(db.String, nullable=False)
 
-    def __init__(self, make, model, year, color, price, is_new, vehicle_type, fuel_type, image, user_token):
+    def __init__(self, make, model, year, color, price, is_new, vehicle_type, image, user_token):
         self.id = self.set_id()
         self.make = make
         self.model = model
@@ -64,7 +63,6 @@ class Car(db.Model):
         self.price = price
         self.is_new = is_new
         self.vehicle_type = vehicle_type
-        self.fuel_type = fuel_type
         self.image = image
         self.user_token = user_token
 
@@ -78,7 +76,7 @@ class Car(db.Model):
 class CarSchema(ma.Schema):
     class Meta:
         fields = ['make', 'model', 'year', 'color', 'price', 'is_new',
-                  'vehicle_type', 'fuel_type', 'image']
+                  'vehicle_type', 'image']
 
 
 car_schema = CarSchema()

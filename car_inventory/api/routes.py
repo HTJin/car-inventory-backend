@@ -15,12 +15,11 @@ def create_car(our_user, fire_token):
     price = request.json['price']
     is_new = request.json['is_new']
     vehicle_type = request.json['vehicle_type']
-    fuel_type = request.json['fuel_type']
     image = get_images(make, model, year, color, vehicle_type)
     user_token = fire_token
 
     car = Car(make, model, year, color, price, is_new,
-              vehicle_type, fuel_type, image, user_token=user_token)
+              vehicle_type, image, user_token=user_token)
 
     db.session.add(car)
     db.session.commit()
@@ -50,7 +49,6 @@ def update_car(our_user, id):
     car.price = request.json['price']
     car.is_new = request.json['is_new']
     car.vehicle_type = request.json['vehicle_type']
-    car.fuel_type = request.json['fuel_type']
     car.image = get_images(car.make, car.model, car.year,
                            car.color, car.vehicle_type)
 
